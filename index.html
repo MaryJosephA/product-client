@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Pantry Stock</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,93 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Pantry Stock</h1>
+
+        <h3 id="display-message"></h3>
+        <!-- <button type="button" id="display-message" class="btn btn-success"></button> -->
+<form id="sign-out-form" class="form-inline" class="box">
+<button type="submit" class="btn btn-secondary btn pull-right" >sign out</button>
+</form>
+      <form id="sign-up-form" class="form-inline">
+  <div class="form-group">
+    <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+  </div>
+  <div class="form-group">
+    <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+  </div>
+  <div class="form-group">
+    <input required placeholder="confirm Password" name="credentials[password_confirmation]" type="password"/>
+  </div>
+  <button type="submit" class="btn btn-primary">sign up</button>
+</form><br/><br/>
+ <form id="sign-in-form" class="form-inline">
+<div class="form-group">
+<input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+</div>
+<div class="form-group">
+<input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+</div>
+<button type="submit" class="btn btn-primary">sign in</button>
+</form><br/><br/>
+
+  <!-- <form id="change-password" class="form-inline">
+ <div class="form-group">
+ <input required placeholder="old password" name="password[old]" type="password"/>
+ </div>
+ <div class="form-group">
+ <input required placeholder="New password" name="passwords[new]" type="password"/>
+ </div>
+ <button type="submit" class="btn btn-primary">changePassword</button>
+ </form> -->
+
+ <form id="change-password" class="hidden">
+      <input required placeholder="old password" name="credentials[old]"type="password"/>
+      <input required placeholder="New password" name="credentials[new]"type ="password"/>
+      <!-- <input id=cpassword type="submit"value ="change"/> -->
+      <button type="submit" class="btn btn-primary">changePassword</button>
+      </form>
+<table>
+  <form id="create-product" class="form-inline">
+<div class="form-group">
+<input required placeholder="Enter product" name="product[prod_name]" type="text"/>
+</div>
+<div class="form-group">
+<input required placeholder="Enter Quantity" name="product[quantity]" type="number"/>
+</div>
+ <input id=changepassword type="submit"value ="change"/>
+</form><br/><br/>
+ <form id="get-products">
+       <input type="submit" value="Getproducts" />
+     </form>
+     <form id="update-product" class="form-inline">
+   <div class="form-group">
+   <input required placeholder="Enter product" name="product[prod_name]" type="text"/>
+   </div>
+   <div class="form-group">
+   <input required placeholder="Enter Quantity" name="product[quantity]" type="number"/>
+   </div>
+   <div class="form-group">
+   <input type='text' name="product[id]" placeholder="Input product ID" />
+ </div>
+ <input id=updateproduct type="submit"value ="update"/>
+</form>
+
+
+
+     <!-- <h2> update one product</h2>
+            <form id="update-product">
+              <input type='text' name="product[id]" placeholder="Input product ID" />
+              <input type='text' name="product[prod_name]" placeholder=" Product name" />
+              <input type='text' name="product[quantity]" placeholder="quantity" />
+               <input type="submit" value="Update One product"  />
+
+              < <input type="submit" value="Update One product"  class="btn btn-primary"/> -->
+            <!-- </form> -->
+<!-- <div class="form-group">
+<button type="submit" class="btn btn-primary">Create</button>
+</div> -->
+</table>
+<div id="content">
+      </div>
     </body>
 </html>
