@@ -38,6 +38,7 @@ const onChangePassword = function (events) {
 }
 
 const onSignOut = function () {
+  console.log('signoutsuccessfull')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)

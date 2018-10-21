@@ -27,17 +27,20 @@ const changePassword = function (proddata) {
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: `Token token=${store.user.token}`
+      // Authorization: 'Token token=' + store.user.token
     },
     data: proddata
   })
 }
+
 const signOut = function () {
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     method: 'DELETE',
     headers: {
-      Authorization: 'Token token=' + store.user.token
+      Authorization: `Token token=${store.user.token}`
+      // Authorization: 'Token token=' + store.user.token
     }
   })
 }

@@ -13,7 +13,27 @@ $(() => {
   $('#create-product').on('submit', authEvents.onCreateProduct)
   $('#get-products').on('submit', authEvents.onShowProduct)
   $('#update-product').on('submit', authEvents.onUpdateProduct)
-  $('#sign-out-form').on('submit', authEvents.onSignOut)
-
+  $('#signout').on('click', authEvents.onSignOut)
   // your JS code goes here
+})
+$('#sign-up-form').hide()
+$('#change-password').hide()
+$('#create-product').hide()
+$('#update-product').hide()
+$('#get-products').hide()
+
+// $("#formButton").click(function(){
+//         $("#form1").toggle();
+//     });
+
+$('#signup').click(function () {
+  $('#sign-up-form').show()
+  $('#signup').hide()
+})
+$('#AddProduct').click(function () {
+  $('#create-product').show()
+})
+
+$('#update').click(function () {
+  $('#update-product').show()
 })

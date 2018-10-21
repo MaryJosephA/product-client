@@ -1,10 +1,12 @@
 const store = require('../store.js')
 // const Events = require('../auth/events.js')
 // const app = require('assets/scripts/app.js')
+
 const signUpSuccess = function () {
-  $('#display-message').html('sign-up-success')
+  $('#display-message').html('Please log in')
   $('#display-message').css('color', 'green')
   $('#sign-up-form').trigger('reset')
+  $('#sign-up-form').hide()
 }
 const signUpFailure = function () {
   $('#display-message').html('sign up failed')
@@ -14,10 +16,10 @@ const signUpFailure = function () {
 }
 const signInSuccess = function (response) {
   $('#display-message').html('welcome' + ' ' + response.user.email)
-  $('#new-game').show()
   $('#sign-out-button').show()
   $('#view-game').show()
   $('#change-password').show()
+  $('#get-products').show()
   // $('#main').hide()
   // $('span').html('play')
   // $('#box1').html('').removeClass('win')
@@ -48,11 +50,9 @@ const signInFailure = function () {
   $('#sign-up-form').trigger('reset')
   $('#change-password').trigger('reset')
 }
-const signOutSuccess = function (response) {
-  $('#display-message').text('Sign Out successful')
-  $('#new-game').hide()
-  $('#view-game').hide()
-  $('#sign-out-button').hide()
+const signOutSuccess = function () {
+  $('#display-message').html('Sign Out successful')
+  $('#sign-out-').hide()
   // $('#display-message').fadeOut(2000)
   $('#change-password').hide()
   $('#change-password-header').hide()
@@ -84,27 +84,7 @@ const changePasswordFailure = function () {
 const onCreateSuccess = function (data) {
   store.product = data.product
   $('#display-message').text('sucessfully created the data')
-
-  // $('#main').show()
-  // $('#turn').html('New Game')
-  // $('#game-message').hide()
-  // $('#box1').html('').removeClass('win')
-  // $('#box2').html('').removeClass('win')
-  // $('#box3').html('').removeClass('win')
-  // $('#box4').html('').removeClass('win')
-  // $('#box5').html('').removeClass('win')
-  // $('#box6').html('').removeClass('win')
-  // $('#box7').html('').removeClass('win')
-  // $('#box8').html('').removeClass('win')
-  // $('#box9').html('').removeClass('win')
-  // $('#change-password').show()
-  // $('#change-password-header').show()
-  // $('#game-show').show()
-  // $('#box1').click(false)
-  $('#main').trigger('reset')
-  // $('#display-message').html('New Game successfully created')
-  $('#message').removeClass()
-  $('#message').addClass('success')
+  $('#create-product').hide()
   // console.log('onCreateSuccess ran. Data is :', data)
 }
 
@@ -119,21 +99,42 @@ const onCreateFailure = function (error) {
 const onUpdateProduct = function (response) {
   // store.product.id = response.product
   console.log('Async: inside .then')
-  console.log(response)
+  // console.log(response)
   // empty content elemen
   $('#content').html('')
   const product = response.product
   const productHTML = (`
-    <p>ID: ${product.id}</p>
-    <h4>prod_name: ${product.prod_name}</h4>
-    <p>Quantity: ${product.quantity}</p>
-    <br />
+    <div class="table-container">
+      <table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="row">product</th>
+    <td>quantity</td>
+    <td>id</td>
+  </tr>
+
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="col">${product.prod_name}</th>
+    <th scope="col">${product.quantity}</th>
+    <th scope="col">${product.id}</th>
+
+  </tr>
+    </tbody>
+    </table>
+    </div>
+
     `)
   $('#display-message').text('Updated')
   $('#update-product').trigger('reset')
   // append bookHTML to content
   $('#content').append(productHTML)
 }
+// <p>ID: ${product.id}</p>
+// <h4>prod_name: ${product.prod_name}</h4>
+// <p>Quantity: ${product.quantity}</p>
+// <br />
 
 const onUpdateFailure = function (error) {
   $('#display-message').text('Error on updating product')
@@ -151,14 +152,37 @@ const onShowProduct = function (response) {
   response.products.forEach(product => {
     // build HTML element with data
     const productHTML = (`
+    <div class="table-container">
+      <table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="row">product</th>
+    <td>quantity</td>
+    <td>id</td>
+  </tr>
 
-    <h4>Products: ${product.prod_name}</h4>
-    <p>Quantity: ${product.quantity}</p>
-    <p>ID: ${product.id}</p>
-    <br />
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="col">${product.prod_name}</th>
+    <th scope="col">${product.quantity}</th>
+    <th scope="col">${product.id}</th>
+
+  </tr>
+    </tbody>
+    </table>
+    </div>
     `)
 
     // append bookHTML to content
+    // <table style="border">
+    // <tr>
+    // <h4>Products: ${product.prod_name}</h4>
+    // <p>Quantity: ${product.quantity}
+    // ID: ${product.id}</p>
+    // </tr>
+    // </table>
+    // <br />
     $('#content').append(productHTML)
   })
 }
