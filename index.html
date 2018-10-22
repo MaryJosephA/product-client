@@ -13,34 +13,25 @@
     </head>
     <body body>
       <h1>Pantry Stock</h1>
+<!-- displays message -->
 
+<!-- <form id="get-products"> -->
+  <nav>
+     <button id="getProductsButton" type="submit" class="btn btn-primary">Get products</button>
+     <button id="AddProduct"type="submit" class="btn btn-primary">Add porducts</button>
+     <button id="update"type="submit" class="btn btn-primary">Update</button>
+     <button id="delete"type="submit" class="btn btn-primary">Remove</button>
+   </nav>
+    <!-- </form> -->
         <h3 id="display-message"></h3>
-        <!-- <button type="button" id="display-message" class="btn btn-success"></button> -->
+
 <form id="sign-out-form" >
 <button id="signout" type="button" class="btn btn-primary float-right" >sign out</button>
 </form><br/><br/>
-      <!-- <form id="sign-up-form" class="form-inline">
-  <div class="form-group">
-    <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
-  </div>
-  <div class="form-group">
-    <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
-  </div>
-  <div class="form-group">
-    <input required placeholder="confirm Password" name="credentials[password_confirmation]" type="password"/>
-  </div>
-  <button type="submit" class="btn btn-primary">sign up</button>
-</form><br/><br/>
-<button type="submit" class="btn btn-primary">sign up</button> -->
-<form id="get-products">
-  <nav>
-     <button type="submit"id="getProductsButton" class="btn btn-primary">Get products</button>
-     <button id="AddProduct"type="submit" class="btn btn-primary">Add porducts</button>
-      <button id="update"type="submit" class="btn btn-primary">update</button>
-   </nav>
-      <!-- <input type="submit" value="Getproducts" /> -->
-    </form>
 
+<!-- gets all product of signed in user       -->
+
+<!-- Login form and signup button -->
  <form id="sign-in-form" class="form-signin">
 <div class="form-group ">
 <input class="h-100 d-inline-block" style="width: 20%; height: 100%" required placeholder="Enter Email" name="credentials[email]" type="email"/>
@@ -48,12 +39,12 @@
 <div class="form-group">
 <input style="width: 20%; height: 100%" required placeholder="Enter Password" name="credentials[password]" type="password"/>
 </div>
-<button style="width: 20%" type="submit" class="btn btn-primary btn block">sign in</button><br/><br/>
+<button style="width: 20%" type="submit" class="btn btn-primary btn block">Login</button><br/><br/>
 <h4> please click sign up to pantry list</h4>
-<button style="width: 20%" id="signup" class="btn btn-primary btn block" type="submit">Sign up</button>
+<button style="width: 20%" id="signup" class="btn btn-primary btn block" type="submit">Register</button>
 </form><br/><br/>
 
-<!-- <a id="search_link1" href="#sign-up-form" class="btn btn-default" role="button">Search result 1</a> -->
+<!-- sign up form -->
 <form id="sign-up-form" class="form-signin">
 <div class="form-group">
 <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
@@ -66,7 +57,7 @@
 </div>
 <button type="submit" class="btn btn-primary">sign up</button>
 </form><br/><br/>
-
+<!-- change password -->
   <form id="change-password" class="form-inline">
  <div class="form-group">
  <input required placeholder="old password" name="passwords[old]" type="password"/>
@@ -76,17 +67,7 @@
  </div>
  <button type="submit" class="btn btn-primary">changePassword</button>
  </form>
-
- <!-- <form id="change-password" class="hidden">
-      <input required placeholder="old password" name="credentials[old]"type="password"/>
-      <input required placeholder="New password" name="credentials[new]"type ="password"/>
-      <!<input id=cpassword type="submit"value ="change"/> -->
-      <!-- <button type="submit" class="btn btn-primary">changepassword</button>
-      </form> -->
-
-
-
-  <form id="create-product" class="form-inline">
+   <form id="create-product" class="form-inline">
 <div class="form-group">
 <input required placeholder="Enter product" name="product[prod_name]" type="text"/>
 </div>
@@ -94,7 +75,7 @@
 <input required placeholder="Enter Quantity" name="product[quantity]" type="number"/>
 </div>
 <button type="submit" class="btn btn-primary">save</button>
-</form>
+  </form>
  <!-- <input id=createproduct type="submit"value ="change"/> -->
 <!-- </form><br/><br/> -->
 
@@ -111,21 +92,17 @@
  <button type="submit" class="btn btn-primary">save</button>
  <!-- <input id=updateproduct type="submit"value ="update"/> -->
 </form>
-
-
-
-     <!-- <h2> update one product</h2>
-            <form id="update-product">
-              <input type='text' name="product[id]" placeholder="Input product ID" />
-              <input type='text' name="product[prod_name]" placeholder=" Product name" />
-              <input type='text' name="product[quantity]" placeholder="quantity" />
-               <input type="submit" value="Update One product"  />
-
-              < <input type="submit" value="Update One product"  class="btn btn-primary"/> -->
-            <!-- </form> -->
-<!-- <div class="form-group">
-<button type="submit" class="btn btn-primary">Create</button>
-</div> -->
+<form id="delete-product" class="form-inline">
+<div class="form-group">
+<input required placeholder="Enter product ID" name="product[id]" type="text"/>
+<button type="submit" class="btn btn-primary">Romove Product</button>
+</div>
+</form>
+<!-- <h2> delete one book</h2>
+      <form id="delete-books">
+        <input type='text' name="book[id]" placeholder="Input Book ID" />
+        <input type="submit" value="Delete One Book"  class="btn btn-default"/>
+      </form> -->
 </table>
 <div id="content">
       </div>

@@ -94,6 +94,16 @@ const updateProduct = function (prodData) {
     data: prodData
   })
 }
+const deleteProduct = function (prodData) {
+  return $.ajax({
+    url: config.apiUrl + '/products/' + prodData.product.id,
+    method: 'DELETE',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+      // Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 //       'game': {
 //         'cell': {
@@ -118,5 +128,6 @@ module.exports = {
   signOut,
   updateProduct,
   create,
-  showProduct
+  showProduct,
+  deleteProduct
 }

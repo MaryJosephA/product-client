@@ -1,6 +1,4 @@
 const store = require('../store.js')
-// const Events = require('../auth/events.js')
-// const app = require('assets/scripts/app.js')
 
 const signUpSuccess = function () {
   $('#display-message').html('Please log in')
@@ -20,17 +18,6 @@ const signInSuccess = function (response) {
   $('#view-game').show()
   $('#change-password').show()
   $('#get-products').show()
-  // $('#main').hide()
-  // $('span').html('play')
-  // $('#box1').html('').removeClass('win')
-  // $('#box2').html('').removeClass('win')
-  // $('#box3').html('').removeClass('win')
-  // $('#box4').html('').removeClass('win')
-  // $('#box5').html('').removeClass('win')
-  // $('#box6').html('').removeClass('win')
-  // $('#box7').html('').removeClass('win')
-  // $('#box8').html('').removeClass('win')
-  // $('#box9').html('').removeClass('win')
   $('#display-message').css('color', 'green')
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
@@ -85,6 +72,7 @@ const onCreateSuccess = function (data) {
   store.product = data.product
   $('#display-message').text('sucessfully created the data')
   $('#create-product').hide()
+  $('#create-product').trigger('reset')
   // console.log('onCreateSuccess ran. Data is :', data)
 }
 
@@ -143,8 +131,8 @@ const onUpdateFailure = function (error) {
   console.error('onUpdateFailure ran. Error is :', error)
 }
 const onShowProduct = function (response) {
-  console.log('Async: inside .then')
-  console.log(response)
+  // console.log('Async: inside .then')
+  // console.log(response)
   // empty content elemen
   $('#content').html('')
 
@@ -152,6 +140,7 @@ const onShowProduct = function (response) {
   response.products.forEach(product => {
     // build HTML element with data
     const productHTML = (`
+
     <div class="table-container">
       <table class="table table-striped">
   <thead>
@@ -187,20 +176,18 @@ const onShowProduct = function (response) {
   })
 }
 
-// const onShowProduct = function (prodData) {
-//   $ products.each('#display-message').html(prodData.products)
-
-// $('#display-message').text(`Total games played is ${gameData.games.length}`)
-// $('#display-message').html('Total games played' + ' ' + gameData.games.length)
-// $('#display-message').css('color', 'green')
-// console.log('onStatSuccess ran. Data is :', data.games.length)
-// }
-
 const onShowFailure = function (error) {
   $('#display-message').text('Please try again')
-  $('#message').removeClass()
-  $('#message').addClass('failure')
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
   console.error('onCreateFailure ran. Error is :', error)
+}
+const onDeleteProduct = function (response) {
+  console.log('Async: inside .then')
+  console.log(response)
+  // empty content elemen
+  $('#content').html('')
+  $('#content').html(`<h4>Product was deleted check to see if it is deleted</h4>`)
 }
 
 module.exports = {
@@ -217,6 +204,7 @@ module.exports = {
   onUpdateProduct,
   onUpdateFailure,
   onShowProduct,
-  onShowFailure
+  onShowFailure,
+  onDeleteProduct
 
 }

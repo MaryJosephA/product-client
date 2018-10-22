@@ -1,10 +1,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
-// const store = require('./../store.js')
-// const board = require()
-// const apps = require('../app.js')
-// const apps = require
+
 const onSignUp = function (events) {
   event.preventDefault()
   const data = getFormFields(events.target)
@@ -62,14 +59,14 @@ const onShowProduct = function (events) {
     .then(ui.onShowProduct)
     .catch(ui.onShowFailure)
 }
-// let winner = null
+
 const onUpdateProduct = function (event) {
 // nPrevent default reload
   event.preventDefault()
-  // Get Book ID input value
+  // Get product ID input value
   const data = getFormFields(event.target)
   // returns: {book: {id: 45}}
-  console.log('bookData is', data)
+  console.log('productData is', data)
   // Make API call
   api.updateProduct(data)
   // Handle success
@@ -80,6 +77,23 @@ const onUpdateProduct = function (event) {
     .catch(ui.onUpdateFailure)
   // console.log('Sync: outside .then')
 }
+const onDeleteProduct = function (event) {
+// nPrevent default reload
+  event.preventDefault()
+  // Get Product ID input value
+  const prodData = getFormFields(event.target)
+  // returns: {book: {id: 45}}
+  console.log('prodData is', prodData)
+  // Make API call
+  api.deleteProduct(prodData)
+  // Handle success
+    // .then(console.log)
+    .then(ui.onDeleteProduct)
+    // .then(ui.success)
+    // Handle Failure
+    .catch(ui.error)
+  // console.log('Sync: outside .then')
+}
 module.exports = {
   onSignUp,
   onSignIn,
@@ -87,5 +101,6 @@ module.exports = {
   onSignOut,
   onUpdateProduct,
   onCreateProduct,
-  onShowProduct
+  onShowProduct,
+  onDeleteProduct
 }

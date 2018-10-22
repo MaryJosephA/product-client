@@ -11,20 +11,19 @@ $(() => {
   $('#sign-in-form').on('submit', authEvents.onSignIn)
   $('#change-password').on('submit', authEvents.onChangePassword)
   $('#create-product').on('submit', authEvents.onCreateProduct)
-  $('#get-products').on('submit', authEvents.onShowProduct)
+  $('#getProductsButton').on('click', authEvents.onShowProduct)
   $('#update-product').on('submit', authEvents.onUpdateProduct)
+  $('#delete-product').on('submit', authEvents.onDeleteProduct)
   $('#signout').on('click', authEvents.onSignOut)
   // your JS code goes here
 })
+
 $('#sign-up-form').hide()
 $('#change-password').hide()
 $('#create-product').hide()
 $('#update-product').hide()
 $('#get-products').hide()
-
-// $("#formButton").click(function(){
-//         $("#form1").toggle();
-//     });
+$('#delete-product').hide()
 
 $('#signup').click(function () {
   $('#sign-up-form').show()
@@ -36,4 +35,7 @@ $('#AddProduct').click(function () {
 
 $('#update').click(function () {
   $('#update-product').show()
+})
+$('#delete').click(function () {
+  $('#delete-product').show()
 })
