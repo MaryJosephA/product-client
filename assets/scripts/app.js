@@ -17,37 +17,42 @@ $(() => {
   $('#signout').on('click', authEvents.onSignOut)
   // your JS code goes here
 
-
-$('#sign-up-form').hide()
-$('#sign-out-form').hide()
-$('#changepassword').hide()
-$('#create-product').hide()
-$('#update-product').hide()
-$('#delete-product').hide()
-$('#change-password').hide()
-$('#getProductsButton').hide()
-$('#AddProduct').hide()
-$('#update').hide()
-$('#delete').hide()
-
-$('#signup').click(function () {
-  $('#sign-up-form').show()
-  $('#signup').hide()
-})
-$('#AddProduct').click(function () {
-  $('#create-product').show()
-})
-$('#update').click(function () {
-  $('#update-product').show()
+  $('#sign-up-form').hide()
+  $('#sign-out-form').hide()
+  $('#changepassword').hide()
   $('#create-product').hide()
-})
-$('#delete').click(function () {
-  $('#delete-product').show()
   $('#update-product').hide()
-  $('#create-product').hide()
-})
-$('#changepassword').click(function () {
-  $('#change-password').show()
+  $('#delete-product').hide()
+  $('#change-password').hide()
+  $('#getProductsButton').hide()
+  $('#AddProduct').hide()
+  $('#update').hide()
+  $('#delete').hide()
+
+  $('#signup').click(function () {
+    $('#sign-up-form').show()
+    $('#signup').hide()
+  })
+  $('#AddProduct').click(function () {
+    $('#create-product').show()
+  })
+  $('#update').click(function () {
+    $('#update-product').show()
+    $('#create-product').hide()
+  })
+  $('#delete').click(function () {
+    $('#delete-product').show()
+    $('#update-product').hide()
+    $('#create-product').hide()
+  })
+  $('#changepassword').click(function () {
+    $('#change-password').show()
   // $('#create-product').hide()
+  })
+  $('#getProductsButton').click(function () {
+    $('#create-product').hide()
+    $('#update-product').hide()
+    $('#delete-product').hide()
+    $('#display-message').html('')
   })
 })

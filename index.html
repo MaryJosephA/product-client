@@ -1,136 +1,110 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Pantry Stock</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Pantry Stock</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body body>
-      <h1 style="text-align:center">Pantry List</h1>
-<!-- displays message -->
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-<!-- <form id="get-products"> -->
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
 
-<!-- <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Link</a></li>
-      <li><a href="#">Link</a></li>
-    </ul>
-    <button class="btn btn-danger navbar-btn">Button</button>
+<body body>
+  <h1 style="text-align:center">Pantry List</h1>
+  <!-- nav bar -->
+  <div class="full-width-bar">
+    <form id="sign-out-form">
+      <button id="signout" type="button" class="btn btn-primary float-right">Logout</button>
+      <button id="changepassword" type="button" class="btn btn-primary float-right">Change Password</button>
+    </form>
+    <nav>
+      <button id="getProductsButton" type="button" class="btn btn-primary navbar-btn">Get List</button>
+      <button id="AddProduct" type="submit" class="btn btn-primary navbar-btn">Add List</button>
+      <button id="update" type="submit" class="btn btn-primary navbar-btn">Update List</button>
+      <button id="delete" type="submit" class="btn btn-primary navbar-btn">Remove List</button>
+
+    </nav>
   </div>
-</nav> -->
-<div class="full-width-bar">
-<form id="sign-out-form" >
-    <button id="signout" type="button" class="btn btn-primary float-right" >Logout</button>
-    <button id="changepassword"type="button" class="btn btn-primary float-right">Change Password</button>
-</form>
-  <nav>
-     <button id="getProductsButton" type="button" class="btn btn-primary navbar-btn">Get List</button>
-     <button id="AddProduct"type="submit" class="btn btn-primary navbar-btn">Add List</button>
-     <button id="update"type="submit" class="btn btn-primary navbar-btn">Update List</button>
-     <button id="delete"type="submit" class="btn btn-primary navbar-btn">Remove List</button>
 
-   </nav>
- </div>
-
-
-    <!-- </form> -->
-        <h3 id="display-message"></h3>
-        <!-- change password -->
-      <form id="change-password" class="form-signin">
-         <div class="form-group">
-           <input style="width: 20%; height: 100%" required placeholder="old password" name="passwords[old]" type="password"/>
-         </div>
-         <div class="form-group">
-           <input style="width: 20%; height: 100%" required placeholder="New password" name="passwords[new]" type="password"/>
-         </div>
-         <button type="submit" class="btn btn-primary">changePassword</button>
-      </form>
-
-        <form id="create-product" class="form-inline">
-     <div class="form-group">
-     <input required placeholder="Enter product" name="product[prod_name]" type="text"/>
-     </div>
-     <div class="form-group">
-     <input required placeholder="Enter Quantity" name="product[quantity]" type="number"/>
-     </div>
-     <button type="submit" class="btn btn-primary">save</button>
-     </form><br/><br/>
-        <form id="update-product" class="form-inline">
-      <div class="form-group">
-      <input required placeholder="Enter product" name="product[prod_name]" type="text"/>
-      </div>
-      <div class="form-group">
-      <input required placeholder="Enter Quantity" name="product[quantity]" type="number"/>
-      </div>
-      <div class="form-group">
+  <!-- </form> -->
+  <h3 id="display-message"></h3>
+  <!-- change password -->
+  <form id="change-password" class="form-signin">
+    <div class="form-group">
+      <input style="width: 20%; height: 100%" required placeholder="old password" name="passwords[old]" type="password" />
+    </div>
+    <div class="form-group">
+      <input style="width: 20%; height: 100%" required placeholder="New password" name="passwords[new]" type="password" />
+    </div>
+    <button type="submit" class="btn btn-primary">changePassword</button>
+  </form>
+  <!-- createproduct -->
+  <form id="create-product" class="form-inline">
+    <div class="form-group">
+      <input required placeholder="Enter product" name="product[prod_name]" type="text" />
+    </div>
+    <div class="form-group">
+      <input required placeholder="Enter Quantity" name="product[quantity]" type="number" />
+    </div>
+    <button type="submit" class="btn btn-primary">save</button>
+  </form><br /><br />
+  <form id="update-product" class="form-inline">
+    <div class="form-group">
+      <input required placeholder="Enter product" name="product[prod_name]" type="text" />
+    </div>
+    <div class="form-group">
+      <input required placeholder="Enter Quantity" name="product[quantity]" type="number" />
+    </div>
+    <div class="form-group">
       <input type='text' name="product[id]" placeholder="Input product ID" />
     </div>
     <button type="submit" class="btn btn-primary">save</button>
     <!-- <input id=updateproduct type="submit"value ="update"/> -->
-   </form>
-   <form id="delete-product" class="form-inline">
-   <div class="form-group">
-   <input required placeholder="Enter product ID" name="product[id]" type="text"/>
-   <button type="submit" class="btn btn-primary">Remove Product</button>
-   </div>
-   </form><br/><br/>
-        <div id="content">
-              </div>
+  </form>
+  <form id="delete-product" class="form-inline">
+    <div class="form-group">
+      <input required placeholder="Enter product ID" name="product[id]" type="text" />
+      <button type="submit" class="btn btn-primary">Remove Product</button>
+    </div>
+  </form><br /><br />
+  <div id="content">
+  </div>
 
+  <!-- gets all product of signed in user-->
 
+  <!-- Login form and signup button -->
+  <form id="sign-in-form" class="form-signin">
+    <div class="form-group ">
+      <input class="h-100 d-inline-block" style="width: 20%; height: 100%" required placeholder="Enter Email" name="credentials[email]" type="email" />
+    </div>
+    <div class="form-group">
+      <input style="width: 20%; height: 100%" required placeholder="Enter Password" name="credentials[password]" type="password" />
+    </div>
+    <button style="width: 20%" type="submit" class="btn btn-primary btn block">Login</button><br /><br />
+    <h4> please click sign up to pantry list</h4>
+    <button style="width: 20%" id="signup" class="btn btn-primary btn block" type="submit">Register</button>
+  </form><br /><br />
 
-<!-- gets all product of signed in user       -->
+  <!-- sign up form -->
+  <form id="sign-up-form" class="form-signin">
+    <div class="form-group">
+      <input style="width: 20%; height: 100%" required placeholder="Enter Email" name="credentials[email]" type="email" />
+    </div>
+    <div class="form-group">
+      <input style="width: 20%; height: 100%" required placeholder="Enter Password" name="credentials[password]" type="password" />
+    </div>
+    <div class="form-group">
+      <input style="width: 20%; height: 100%" required placeholder="confirm Password" name="credentials[password_confirmation]" type="password" />
+    </div>
+    <button type="submit" class="btn btn-primary">sign up</button>
+  </form><br /><br />
+  <!-- <input id=createproduct type="submit"value ="change"/> -->
+  </table>
 
-<!-- Login form and signup button -->
- <form id="sign-in-form" class="form-signin">
-<div class="form-group ">
-<input class="h-100 d-inline-block" style="width: 20%; height: 100%" required placeholder="Enter Email" name="credentials[email]" type="email"/>
-</div>
-<div class="form-group">
-<input style="width: 20%; height: 100%" required placeholder="Enter Password" name="credentials[password]" type="password"/>
-</div>
-<button style="width: 20%" type="submit" class="btn btn-primary btn block">Login</button><br/><br/>
-<h4> please click sign up to pantry list</h4>
-<button style="width: 20%" id="signup" class="btn btn-primary btn block" type="submit">Register</button>
-</form><br/><br/>
+</body>
 
-<!-- sign up form -->
-<form id="sign-up-form" class="form-signin">
-<div class="form-group">
-<input style="width: 20%; height: 100%" required placeholder="Enter Email" name="credentials[email]" type="email"/>
-</div>
-<div class="form-group">
-<input style="width: 20%; height: 100%" required placeholder="Enter Password" name="credentials[password]" type="password"/>
-</div>
-<div class="form-group">
-<input style="width: 20%; height: 100%" required placeholder="confirm Password" name="credentials[password_confirmation]" type="password"/>
-</div>
-<button type="submit" class="btn btn-primary">sign up</button>
-</form><br/><br/>
-
- <!-- <input id=createproduct type="submit"value ="change"/> -->
-<!-- </form><br/><br/> -->
-
-
-
-<!-- <h2> delete one book</h2>
-      <form id="delete-books">
-        <input type='text' name="book[id]" placeholder="Input Book ID" />
-        <input type="submit" value="Delete One Book"  class="btn btn-default"/>
-      </form> -->
-</table>
-
-    </body>
 </html>

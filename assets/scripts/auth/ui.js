@@ -3,6 +3,7 @@ const store = require('../store.js')
 const signUpSuccess = function () {
   $('#display-message').html('Please log in')
   $('#display-message').css('color', 'green')
+  $('#sign-in-form').show()
   $('#sign-up-form').trigger('reset')
   $('#sign-up-form').hide()
   $('#getProductsButton').hide()
@@ -52,6 +53,7 @@ const signOutSuccess = function () {
   $('#display-message').css('color', 'green')
   $('#main').hide()
   $('#sign-in-form').show()
+  $('#signout').show()
   // $('#sign-up-form').show()
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
@@ -59,7 +61,9 @@ const signOutSuccess = function () {
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
   $('#change-password').addClass('hidden')
-  $('#signout').hide()
+  $('#create-product').hide()
+  $('#update-product').hide()
+  $('#delete-product').hide()
   $('#changepassword').hide()
   $('#getProductsButton').hide()
   $('#AddProduct').hide()
@@ -70,21 +74,26 @@ const signOutSuccess = function () {
 const signOutFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
   $('#display-message').css('color', 'red')
+  $('#sign-in-form').show()
+  $('#signout').show()
 }
 const changePasswordSuccess = function () {
   $('#display-message').text('Success change password')
   $('#display-message').css('color', 'green')
   $('#change-password').trigger('reset')
+  $('#change-password').hide()
 }
 const changePasswordFailure = function () {
   $('#display-message').html('please try again')
   $('#display-message').css('color', 'green')
   $('#change-password').trigger('reset')
+  $('#change-password').hide()
 }
 const onCreateSuccess = function (data) {
   store.product = data.product
   $('#display-message').text('sucessfully created the data')
   $('#create-product').trigger('reset')
+  $('#content').append(data.product)
   // console.log('onCreateSuccess ran. Data is :', data)
 }
 
@@ -130,6 +139,7 @@ const onUpdateProduct = function (response) {
     `)
   $('#display-message').text('Updated')
   $('#update-product').trigger('reset')
+  $('#delete-product').hide()
 
   // append productHTML to content
   $('#content').append(productHTML)
@@ -152,7 +162,7 @@ const onShowProduct = function (response) {
   // empty content elemen
   // store.user = response.user
   // if (response.products = 0){
-  //   $('#display-message').html('new user add list')
+  // $('#display-message').html('new user add list')
   // }else{
   $('#content').html('')
   $('#update-product').hide()
@@ -205,6 +215,7 @@ const onDeleteProduct = function (response) {
   console.log('Async: inside .then')
   console.log(response)
   $('#delete-product').trigger('reset')
+  $('#display-message').trigger('reset')
   // empty content elemen
   $('#content').html('')
   $('#content').html(`<h4>Product was deleted check to see if it is deleted</h4>`)
@@ -215,6 +226,7 @@ const onDeleteFailure = function () {
   $('#sign-in-form').hide()
   $('#content').html('')
   $('#content').html(`<h4>Please sign in or choose different id </h4>`)
+  $('#delete-product').trigger('reset')
 
   // $('#message').removeClass()
   // $('#message').addClass('failure')

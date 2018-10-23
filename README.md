@@ -58,8 +58,8 @@ HTML, CSS, BOOTSTARP JAVASCRIPT, WEB API RESTFUL SERVICE, RUBY ON RAILS
 
 
 
-## WireFrame https://github.com/MaryJosephA/product-client/tree/master/public/wireframe.JPG
-
+## WireFrame
+![alt text](public/wireframe.JPG "Logo Title Text 1")
 ## [License](LICENSE)
 
  For commercial use or
