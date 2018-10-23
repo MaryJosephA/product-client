@@ -53,7 +53,7 @@ const signOutSuccess = function () {
   $('#display-message').css('color', 'green')
   $('#main').hide()
   $('#sign-in-form').show()
-  $('#signout').show()
+  $('#signout').hide()
   // $('#sign-up-form').show()
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
