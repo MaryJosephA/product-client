@@ -5,23 +5,31 @@ const signUpSuccess = function () {
   $('#display-message').css('color', 'green')
   $('#sign-up-form').trigger('reset')
   $('#sign-up-form').hide()
+  $('#getProductsButton').hide()
+  $('#AddProduct').show()
+  $('#update').show()
+  $('#delete').show()
 }
 const signUpFailure = function () {
   $('#display-message').html('sign up failed')
   $('#display-message').css('color', 'green')
-  $('#sign-up-form').hide()
   $('#sign-up-form').trigger('reset')
+  $('#sign-up-form').show()
 }
+
 const signInSuccess = function (response) {
-  $('#display-message').html('welcome' + ' ' + response.user.email)
-  $('#sign-out-button').show()
-  $('#view-game').show()
-  $('#change-password').show()
-  $('#get-products').show()
+  $('#display-message').html('welcome' + ' ' + response.user.email + ' ' + response.user.id)
+  $('#signout').show()
+  // $('#change-password').show()
+  $('#changepassword').show()
+  $('#getProductsButton').show()
+  $('#AddProduct').show()
+  $('#update').show()
+  $('#delete').show()
   $('#display-message').css('color', 'green')
   $('#sign-in-form').hide()
   $('#sign-up-form').hide()
-  $('#sign-out-button').show()
+  $('#sign-out-form').show()
   $('#sign-in-form').trigger('reset')
   store.user = response.user
   $('#sign-up-form').addClass('hidden')
@@ -39,20 +47,25 @@ const signInFailure = function () {
 }
 const signOutSuccess = function () {
   $('#display-message').html('Sign Out successful')
-  $('#sign-out-').hide()
   // $('#display-message').fadeOut(2000)
   $('#change-password').hide()
-  $('#change-password-header').hide()
   $('#display-message').css('color', 'green')
   $('#main').hide()
   $('#sign-in-form').show()
-  $('#sign-up-form').show()
+  // $('#sign-up-form').show()
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
+  $('change-password').trigger('reset')
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
   $('#change-password').addClass('hidden')
-  $('#sign-out-button').addClass('hidden')
+  $('#signout').hide()
+  $('#changepassword').hide()
+  $('#getProductsButton').hide()
+  $('#AddProduct').hide()
+  $('#update').hide()
+  $('#delete').hide()
+  $('#content').html('')
 }
 const signOutFailure = function () {
   $('#display-message').html('Something went wrong, please try again')
@@ -71,21 +84,22 @@ const changePasswordFailure = function () {
 const onCreateSuccess = function (data) {
   store.product = data.product
   $('#display-message').text('sucessfully created the data')
-  $('#create-product').hide()
   $('#create-product').trigger('reset')
   // console.log('onCreateSuccess ran. Data is :', data)
 }
 
 //
-const onCreateFailure = function (error) {
+const onCreateFailure = function () {
   $('#display-message').text('Error on creating example')
+  $('#create-product').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('onCreateFailure ran. Error is :', error)
+  // console.error('onCreateFailure ran. Error is :', error)
 }
 
 const onUpdateProduct = function (response) {
   // store.product.id = response.product
+
   console.log('Async: inside .then')
   // console.log(response)
   // empty content elemen
@@ -116,7 +130,8 @@ const onUpdateProduct = function (response) {
     `)
   $('#display-message').text('Updated')
   $('#update-product').trigger('reset')
-  // append bookHTML to content
+
+  // append productHTML to content
   $('#content').append(productHTML)
 }
 // <p>ID: ${product.id}</p>
@@ -126,6 +141,7 @@ const onUpdateProduct = function (response) {
 
 const onUpdateFailure = function (error) {
   $('#display-message').text('Error on updating product')
+  $('#update-product').trigger('reset')
   $('#display-message').removeClass()
   $('#display-message').addClass('failure')
   console.error('onUpdateFailure ran. Error is :', error)
@@ -134,13 +150,16 @@ const onShowProduct = function (response) {
   // console.log('Async: inside .then')
   // console.log(response)
   // empty content elemen
+  // store.user = response.user
+  // if (response.products = 0){
+  //   $('#display-message').html('new user add list')
+  // }else{
   $('#content').html('')
-
+  $('#update-product').hide()
   // loop through API response data
   response.products.forEach(product => {
     // build HTML element with data
     const productHTML = (`
-
     <div class="table-container">
       <table class="table table-striped">
   <thead>
@@ -162,8 +181,8 @@ const onShowProduct = function (response) {
     </table>
     </div>
     `)
-
-    // append bookHTML to content
+    // onShowProduct.sort()
+    // append productHTML to content
     // <table style="border">
     // <tr>
     // <h4>Products: ${product.prod_name}</h4>
@@ -185,9 +204,21 @@ const onShowFailure = function (error) {
 const onDeleteProduct = function (response) {
   console.log('Async: inside .then')
   console.log(response)
+  $('#delete-product').trigger('reset')
   // empty content elemen
   $('#content').html('')
   $('#content').html(`<h4>Product was deleted check to see if it is deleted</h4>`)
+}
+const onDeleteFailure = function () {
+  $('#change-password').hide()
+  $('#sign-up-form').hide()
+  $('#sign-in-form').hide()
+  $('#content').html('')
+  $('#content').html(`<h4>Please sign in or choose different id </h4>`)
+
+  // $('#message').removeClass()
+  // $('#message').addClass('failure')
+  // console.error('onCreateFailure ran. Error is :', error)
 }
 
 module.exports = {
@@ -205,6 +236,7 @@ module.exports = {
   onUpdateFailure,
   onShowProduct,
   onShowFailure,
-  onDeleteProduct
+  onDeleteProduct,
+  onDeleteFailure
 
 }

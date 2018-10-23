@@ -1,9 +1,26 @@
 
 @import '~bootstrap/scss/bootstrap';
 
-
+body{
+  background-color: #fafbf5;
+}
+//#eeebd9
 form{
   text-align:center;
+}
+.full-width-bar {
+  margin: 0 -9999rem;
+  /* add back negative margin value */
+  padding: 0.25rem 9999rem;
+  background: #006dcc;
+}
+.btn-primary n{
+background-color: #006dcc
+}
+.container{
+  border: 1px solid;
+  border-color: grey;
+  width: 978px !important;
 }
 .table-container {
   border: 1px solid #963;

@@ -35,7 +35,7 @@ const onChangePassword = function (events) {
 }
 
 const onSignOut = function () {
-  console.log('signoutsuccessfull')
+  // console.log('signoutsuccessfull')
   api.signOut()
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -89,9 +89,10 @@ const onDeleteProduct = function (event) {
   // Handle success
     // .then(console.log)
     .then(ui.onDeleteProduct)
+    .catch(ui.onDeleteFailure)
     // .then(ui.success)
     // Handle Failure
-    .catch(ui.error)
+    // .catch(ui.error)
   // console.log('Sync: outside .then')
 }
 module.exports = {

@@ -18,44 +18,47 @@ HTML, CSS, BOOTSTARP JAVASCRIPT, WEB API RESTFUL SERVICE, RUBY ON RAILS
 
 ## project planning
 1.  Created wirframe and user story
-2. Downloaded the Browser Template
-3. Download this template.
-4. Replaced all the instance of browser template to product-client
+2. Downloaded the rails-api-template
+3. Renamed the app module in config/application.rb to RailsApiTemplate
+4. Renamed the pr0ject database in config/database.yml to rails-api-template
 5. Initialized the project in the git using git init
 6. Added all the filed using git add --all
 7. committed all the files using git commit origin master
-8. Created a new repository in git hub then ran npm Install
+8. Created a new repository in git hub then ran bundle Install
 9. created branches in the git
+10.created a .env with keys secret_key_base for development and test
 10.Puodocoded the api client like how to link the client and backend
 11.created Sign in, Sign Out, changepassword, create,show update and delete form
 13.using web api made the form sign in, sign out, change password, create,
    update, show and delete to talk with the api and bring the data to the browser
 14.Consume the web api to create show update and delete the resources.
-15.  Hosted the site in the github
+15.  Hosted the site in the Github
+
 
 ## Challenges faced
 
 1.  struggled with connecting the api client and backend but overcame by reading
     documetation.
-2.  Jquery would not work as it to be working removed all the console log the Jquery message
-    started to show
+2.  Had difficulty in displaying the data but managed to
 3.  used google chrome to debug the issue
 
 ## User Stories
 
-1. User sign up with email and password confirmation
-2. User should be a able to sign in
-3. User should able to sign in and change password with current and new password
-4. User should able to sign in and  show, create, update, and delete a product
-5. User should be able to get feedback after each action
+1. User must be able to create a new resource
+2. User must be able to update a resource
+3. User must be able to delete the resource
+4. User must be able to view a single or multiple resources
+5. User should get feed back after each action success or failure
 
 ## Unsolved problems
 
-1. Will impliment the mobile version of the site in next iterartion
+1. Will implement the mobile version of the site in next iterartion
 2. Enhancement of the site in next iteration which ever is not done
 3. Adding animation to the text and site will be done in next iterartion
 
-## WireFrame https://github.com/adam-p/markdown-here/raw/master/src/common/images/wireframe.jpg
+
+
+## WireFrame https://github.com/MaryJosephA/product-client/tree/master/public/wireframe.JPG
 
 ## [License](LICENSE)
 

@@ -62,8 +62,8 @@ const showProduct = function (prodData) { /// //////////////////////////////////
     method: 'GET',
     headers: {
       Authorization: `Token token=${store.user.token}`
-    },
-    data: prodData
+    }
+    // data: prodData
 
   })
 }
