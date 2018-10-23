@@ -7,9 +7,9 @@ const signUpSuccess = function () {
   $('#sign-up-form').trigger('reset')
   $('#sign-up-form').hide()
   $('#getProductsButton').hide()
-  $('#AddProduct').show()
-  $('#update').show()
-  $('#delete').show()
+  $('#AddProduct').hide()
+  $('#update').hide()
+  $('#delete').hide()
 }
 const signUpFailure = function () {
   $('#display-message').html('sign up failed')
