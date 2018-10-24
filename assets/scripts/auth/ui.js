@@ -54,7 +54,7 @@ const signOutSuccess = function () {
   $('#main').hide()
   $('#sign-in-form').show()
   $('#signout').hide()
-  // $('#sign-up-form').show()
+  $('#sign-up-form').show()
   $('#sign-in-form').trigger('reset')
   $('#sign-up-form').trigger('reset')
   $('change-password').trigger('reset')
@@ -212,8 +212,8 @@ const onShowFailure = function (error) {
   console.error('onCreateFailure ran. Error is :', error)
 }
 const onDeleteProduct = function (response) {
-  console.log('Async: inside .then')
-  console.log(response)
+  // console.log('Async: inside .then')
+  // console.log(response)
   $('#delete-product').trigger('reset')
   $('#display-message').trigger('reset')
   // empty content elemen
