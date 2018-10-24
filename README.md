@@ -8,10 +8,8 @@ https://enigmatic-plains-70569.herokuapp.com/
 1. Login if you have a credentials if you dont have one or Sign up
 2. Click GetProduct to see all the Pantry List
 3. Click AddProduct to create product and hit save to add new product
-4,  Click Update to update the product giving the product id
-5. Then start playing  the goal is the win the tic-tac-toe game by getting three in a row  - either
-   across, down, or diagonally or getting a majority of the squares in the big board
-6,  Everytime you play , win or loose will upated via api and it is strored and the data is retrived
+4. Click Update to update the product giving the product id
+
 
 ## Technologies
 HTML, CSS, BOOTSTARP JAVASCRIPT, WEB API RESTFUL SERVICE, RUBY ON RAILS
