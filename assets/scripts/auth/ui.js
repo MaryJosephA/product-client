@@ -13,7 +13,7 @@ const signUpSuccess = function () {
 }
 const signUpFailure = function () {
   $('#display-message').html('sign up failed')
-  $('#display-message').css('color', 'green')
+  $('#display-message').css('color', 'red')
   $('#sign-up-form').trigger('reset')
   $('#sign-up-form').show()
 }
@@ -86,21 +86,53 @@ const changePasswordSuccess = function () {
 }
 const changePasswordFailure = function () {
   $('#display-message').html('please try again')
-  $('#display-message').css('color', 'green')
+  $('#display-message').css('color', 'red')
   $('#change-password').trigger('reset')
   $('#change-password').hide()
 }
-const onCreateSuccess = function (data) {
-  store.product = data.product
+const onCreateSuccess = function (response) {
+  // store.product = response.product
+  $('#content').html('')
+  const product = response.product
+  const productHTML = (`
+    <div class="table-container">
+      <table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="row">product</th>
+    <td>quantity</td>
+    <td>id</td>
+  </tr>
+
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="col">${product.prod_name}</th>
+    <th scope="col">${product.quantity}</th>
+    <th scope="col">${product.id}</th>
+
+  </tr>
+    </tbody>
+    </table>
+    </div>
+
+    `)
+  $('#display-message').text('Updated')
+  $('#update-product').trigger('reset')
+  $('#delete-product').hide()
+
+  // append productHTML to content
+  $('#content').append(productHTML)
   $('#display-message').text('sucessfully created the data')
   $('#create-product').trigger('reset')
-  $('#content').append(data.product)
+  $('#content').append(response.product)
   // console.log('onCreateSuccess ran. Data is :', data)
 }
 
 //
 const onCreateFailure = function () {
   $('#display-message').text('Error on creating example')
+  $('#display-message').css('color', 'red')
   $('#create-product').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -152,6 +184,7 @@ const onUpdateProduct = function (response) {
 
 const onUpdateFailure = function (error) {
   $('#display-message').text('Error on updating product')
+  $('#display-message').css('color', 'red')
   $('#update-product').trigger('reset')
   $('#display-message').removeClass()
   $('#display-message').addClass('failure')
@@ -208,6 +241,7 @@ const onShowProduct = function (response) {
 
 const onShowFailure = function (error) {
   $('#display-message').text('Please try again')
+  $('#display-message').css('color', 'red')
   // $('#message').removeClass()
   // $('#message').addClass('failure')
   console.error('onCreateFailure ran. Error is :', error)
@@ -219,14 +253,14 @@ const onDeleteProduct = function (response) {
   $('#display-message').trigger('reset')
   // empty content elemen
   $('#content').html('')
-  $('#content').html(`<h4>Product was deleted check to see if it is deleted</h4>`)
+  $('#display-message').css('color', 'green')
 }
 const onDeleteFailure = function () {
   $('#change-password').hide()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
   $('#content').html('')
-  $('#content').html(`<h4>Please sign in or choose different id </h4>`)
+  $('#display-message').css('color', 'Red')
   $('#delete-product').trigger('reset')
 
   // $('#message').removeClass()

@@ -1,9 +1,6 @@
 'use strict'
 const config = require('../config.js')
 const store = require('../store.js')
-// const board = require('./../../../lib/board.js')
-// const gameData = require('./auth/Games/board.js')
-// Users/maryabraham/wdi/projects/Tic-Tac-Toe-client/assets/scripts/auth/Games
 
 const signUp = function (proddata) {
   return $.ajax({
@@ -13,8 +10,6 @@ const signUp = function (proddata) {
   })
 }
 const signIn = function (proddata) {
-  // const gameId = gameData.games.id
-  // const email = gameData.games.email
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -22,7 +17,7 @@ const signIn = function (proddata) {
   })
 }
 const changePassword = function (proddata) {
-  console.log('change password ', proddata)
+  // console.log('change password ', proddata)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -81,7 +76,7 @@ const showProduct = function (prodData) { /// //////////////////////////////////
 // }
 
 const updateProduct = function (prodData) {
-  console.log(prodData.product.Id)
+  // console.log(prodData.product.Id)
   return $.ajax({
 
     // url: config.apiUrl + `/products/${prodData.product.Id}`,
@@ -104,23 +99,6 @@ const deleteProduct = function (prodData) {
     }
   })
 }
-
-//       'game': {
-//         'cell': {
-//           'index': event.target.data,
-//           'value': $(event.target).this.innerHTML
-//         },
-//         'over': store.gameover
-//       }
-//     }
-//   })
-// }
-
-//     gameData
-//     // data: data
-//   })
-// }
-
 module.exports = {
   signUp,
   signIn,

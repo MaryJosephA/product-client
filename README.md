@@ -2,7 +2,14 @@
 
 # Pantry List
 Below is the url where the application is hosted
-https://enigmatic-plains-70569.herokuapp.com/
+
+[product-client Repo](https://github.com/MaryJosephA/product-client)
+
+[product-client Deployed](https://maryjosepha.github.io/product-client/)
+
+[product-rails-api Repo](https://github.com/MaryJosephA/product-rails-api)
+
+[product-rails-api Deployed](https://enigmatic-plains-70569.herokuapp.com/)
 
 ## Procedure
 1. Login if you have a credentials if you dont have one or Sign up
