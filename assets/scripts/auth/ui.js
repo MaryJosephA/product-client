@@ -117,7 +117,7 @@ const onCreateSuccess = function (response) {
     </div>
 
     `)
-  $('#display-message').text('Updated')
+  // $('#display-message').text('created')
   $('#update-product').trigger('reset')
   $('#delete-product').hide()
 
