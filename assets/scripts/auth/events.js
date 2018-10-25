@@ -43,7 +43,7 @@ const onSignOut = function () {
 
 const onCreateProduct = function (events) {
   event.preventDefault()
-  // console.log('Game Created!')
+  // console.log('product Created!')
   const data = getFormFields(event.target)
   // console.log(event)
   api.create(data)
@@ -65,7 +65,7 @@ const onUpdateProduct = function (event) {
   event.preventDefault()
   // Get product ID input value
   const data = getFormFields(event.target)
-  // returns: {book: {id: 45}}
+  // returns: {product: {id: 45}}
   console.log('productData is', data)
   // Make API call
   api.updateProduct(data)
@@ -82,7 +82,7 @@ const onDeleteProduct = function (event) {
   event.preventDefault()
   // Get Product ID input value
   const prodData = getFormFields(event.target)
-  // returns: {book: {id: 45}}
+  // returns: {product: {id: 45}}
   console.log('prodData is', prodData)
   // Make API call
   api.deleteProduct(prodData)

@@ -90,11 +90,42 @@ const changePasswordFailure = function () {
   $('#change-password').trigger('reset')
   $('#change-password').hide()
 }
-const onCreateSuccess = function (data) {
-  store.product = data.product
+const onCreateSuccess = function (response) {
+  // store.product = response.product
+  $('#content').html('')
+  const product = response.product
+  const productHTML = (`
+    <div class="table-container">
+      <table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="row">product</th>
+    <td>quantity</td>
+    <td>id</td>
+  </tr>
+
+  </thead>
+  <tbody>
+  <tr>
+    <th scope="col">${product.prod_name}</th>
+    <th scope="col">${product.quantity}</th>
+    <th scope="col">${product.id}</th>
+
+  </tr>
+    </tbody>
+    </table>
+    </div>
+
+    `)
+  $('#display-message').text('Updated')
+  $('#update-product').trigger('reset')
+  $('#delete-product').hide()
+
+  // append productHTML to content
+  $('#content').append(productHTML)
   $('#display-message').text('sucessfully created the data')
   $('#create-product').trigger('reset')
-  $('#content').append(data.product)
+  $('#content').append(response.product)
   // console.log('onCreateSuccess ran. Data is :', data)
 }
 
