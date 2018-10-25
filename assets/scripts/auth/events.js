@@ -17,7 +17,7 @@ const onSignIn = function (events) {
 
   const data = getFormFields(events.target)
   // alert('Made it to onSignUp')
-  console.log(data)
+  // console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -28,7 +28,7 @@ const onChangePassword = function (events) {
 
   const data = getFormFields(event.target)
   // alert('Made it to onSignUp')
-  console.log(data)
+  // console.log(data)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
@@ -66,7 +66,7 @@ const onUpdateProduct = function (event) {
   // Get product ID input value
   const data = getFormFields(event.target)
   // returns: {product: {id: 45}}
-  console.log('productData is', data)
+  // console.log('productData is', data)
   // Make API call
   api.updateProduct(data)
   // Handle success
@@ -82,8 +82,8 @@ const onDeleteProduct = function (event) {
   event.preventDefault()
   // Get Product ID input value
   const prodData = getFormFields(event.target)
-  // returns: {product: {id: 45}}
-  console.log('prodData is', prodData)
+  // returns: {produc: {id: 45}}
+  // console.log('prodData is', prodData)
   // Make API call
   api.deleteProduct(prodData)
   // Handle success

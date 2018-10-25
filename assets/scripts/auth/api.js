@@ -17,7 +17,7 @@ const signIn = function (proddata) {
   })
 }
 const changePassword = function (proddata) {
-  console.log('change password ', proddata)
+  // console.log('change password ', proddata)
   return $.ajax({
     url: config.apiUrl + '/change-password',
     method: 'PATCH',
@@ -76,7 +76,7 @@ const showProduct = function (prodData) { /// //////////////////////////////////
 // }
 
 const updateProduct = function (prodData) {
-  console.log(prodData.product.Id)
+  // console.log(prodData.product.Id)
   return $.ajax({
 
     // url: config.apiUrl + `/products/${prodData.product.Id}`,

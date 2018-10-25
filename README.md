@@ -2,16 +2,21 @@
 
 # Pantry List
 Below is the url where the application is hosted
-https://enigmatic-plains-70569.herokuapp.com/
+
+[product-client Repo](https://github.com/MaryJosephA/product-client)
+
+[product-client Deployed](https://maryjosepha.github.io/product-client/)
+
+[product-rails-api Repo](https://github.com/MaryJosephA/product-rails-api)
+
+[product-rails-api Deployed](https://enigmatic-plains-70569.herokuapp.com/)
 
 ## Procedure
 1. Login if you have a credentials if you dont have one or Sign up
-2. Click GetProduct to see all the Pantry List
-3. Click AddProduct to create product and hit save to add new product
-4,  Click Update to update the product giving the product id
-5. Then start playing  the goal is the win the tic-tac-toe game by getting three in a row  - either
-   across, down, or diagonally or getting a majority of the squares in the big board
-6,  Everytime you play , win or loose will upated via api and it is strored and the data is retrived
+2. Click GetList to see all the Pantry List
+3. Click AddList to create product and hit save to add new product
+4.  Click Update to update the product giving the product id
+5. Delete the product by giving product id
 
 ## Technologies
 HTML, CSS, BOOTSTARP JAVASCRIPT, WEB API RESTFUL SERVICE, RUBY ON RAILS

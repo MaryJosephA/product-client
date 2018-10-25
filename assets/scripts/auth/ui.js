@@ -13,7 +13,7 @@ const signUpSuccess = function () {
 }
 const signUpFailure = function () {
   $('#display-message').html('sign up failed')
-  $('#display-message').css('color', 'green')
+  $('#display-message').css('color', 'red')
   $('#sign-up-form').trigger('reset')
   $('#sign-up-form').show()
 }
@@ -86,7 +86,7 @@ const changePasswordSuccess = function () {
 }
 const changePasswordFailure = function () {
   $('#display-message').html('please try again')
-  $('#display-message').css('color', 'green')
+  $('#display-message').css('color', 'red')
   $('#change-password').trigger('reset')
   $('#change-password').hide()
 }
@@ -132,6 +132,7 @@ const onCreateSuccess = function (response) {
 //
 const onCreateFailure = function () {
   $('#display-message').text('Error on creating example')
+  $('#display-message').css('color', 'red')
   $('#create-product').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('failure')
@@ -183,6 +184,7 @@ const onUpdateProduct = function (response) {
 
 const onUpdateFailure = function (error) {
   $('#display-message').text('Error on updating product')
+  $('#display-message').css('color', 'red')
   $('#update-product').trigger('reset')
   $('#display-message').removeClass()
   $('#display-message').addClass('failure')
@@ -239,6 +241,7 @@ const onShowProduct = function (response) {
 
 const onShowFailure = function (error) {
   $('#display-message').text('Please try again')
+  $('#display-message').css('color', 'red')
   // $('#message').removeClass()
   // $('#message').addClass('failure')
   console.error('onCreateFailure ran. Error is :', error)
@@ -250,14 +253,14 @@ const onDeleteProduct = function (response) {
   $('#display-message').trigger('reset')
   // empty content elemen
   $('#content').html('')
-  $('#content').html(`<h4>Product was deleted check to see if it is deleted</h4>`)
+  $('#display-message').css('color', 'green')
 }
 const onDeleteFailure = function () {
   $('#change-password').hide()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
   $('#content').html('')
-  $('#content').html(`<h4>Please sign in or choose different id </h4>`)
+  $('#display-message').css('color', 'Red')
   $('#delete-product').trigger('reset')
 
   // $('#message').removeClass()
