@@ -54,12 +54,34 @@ const onShowProduct = function (events) {
   event.preventDefault()
   // ajaxCalls.showStatsAjaxCall()
   const data = getFormFields(event.target)
+  // const product = data.product
+  // if (product.editable === false) {
+  //   $('#display.message').html('this is product of ' + data.user.email)
   // console.log(event)
   api.showProduct(data)
     .then(ui.onShowProduct)
     .catch(ui.onShowFailure)
+  // } else {
+  //   $('#display.message').html('this is product of ' + data.user.email)
 }
 
+// const onShowExample = function (event) {
+//   event.preventDefault()
+//   console.log('onShowExample ran!')
+//
+//   const data = getFormFields(event.target)
+//   const example = data.example
+//
+//   if (example.id.length !== 0) {
+//     api.show(example)
+//       .then(ui.onShowSuccess)
+//       .catch(ui.onShowFailure)
+//   } else {
+//     $('#message').html('<p>Please provide an example id!</p>')
+//     $('#message').css('background-color', 'red')
+//     console.log('Please enter an example id!')
+//   }
+// }
 const onUpdateProduct = function (event) {
 // nPrevent default reload
   event.preventDefault()
@@ -80,12 +102,17 @@ const onUpdateProduct = function (event) {
 const onDeleteProduct = function (event) {
 // nPrevent default reload
   event.preventDefault()
-  // Get Product ID input value
-  const prodData = getFormFields(event.target)
-  // returns: {produc: {id: 45}}
-  // console.log('prodData is', prodData)
+
+  // event.target is a button
+  console.log('this event is :', event.target)
+
+  const prodDataId = event.target.getAttribute('data-id')
+
+  // But prodData is an empty object? :(
+  console.log('prodData is', prodDataId)
+
   // Make API call
-  api.deleteProduct(prodData)
+  api.deleteProduct(prodDataId)
   // Handle success
     // .then(console.log)
     .then(ui.onDeleteProduct)

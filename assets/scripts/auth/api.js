@@ -78,20 +78,22 @@ const showProduct = function (prodData) { /// //////////////////////////////////
 const updateProduct = function (prodData) {
   // console.log(prodData.product.Id)
   return $.ajax({
-
-    // url: config.apiUrl + `/products/${prodData.product.Id}`,
-    url: config.apiUrl + '/products/' + prodData.product.id,
+    url: config.apiUrl + `/products/${prodData.product.id}`,
+    // url: config.apiUrl + '/products/' + prodData.product.id,
     // url: config.apiUrl + '/products/' + productId,
     headers: {
-      Authorization: `Token token=${store.user.token}`
+      Authorization: 'Token token=' + store.user.token
+      // Authorization: `Token token=${store.user.token}`
     },
     method: 'PATCH',
     data: prodData
   })
 }
-const deleteProduct = function (prodData) {
+const deleteProduct = function (prodDataId) {
+  // prodData is empty! But I need the id
+  console.log('im trying to delete with prodData', prodDataId)
   return $.ajax({
-    url: config.apiUrl + '/products/' + prodData.product.id,
+    url: config.apiUrl + '/products/' + prodDataId,
     method: 'DELETE',
     headers: {
       Authorization: `Token token=${store.user.token}`

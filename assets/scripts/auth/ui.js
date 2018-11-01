@@ -1,4 +1,5 @@
 const store = require('../store.js')
+// const authEvents = require('./auth/events.js')
 
 const signUpSuccess = function () {
   $('#display-message').html('Please log in')
@@ -191,6 +192,8 @@ const onUpdateFailure = function (error) {
   console.error('onUpdateFailure ran. Error is :', error)
 }
 const onShowProduct = function (response) {
+  // store.user = response.user
+  // $('#display-message').html('welcome' + ' ' + response.user.email + ' ' + response.user.id)
   // console.log('Async: inside .then')
   // console.log(response)
   // empty content elemen
@@ -202,8 +205,22 @@ const onShowProduct = function (response) {
   $('#update-product').hide()
   // loop through API response data
   response.products.forEach(product => {
+    console.log('this is :', product)
     // build HTML element with data
+    //       const myClock = document.getElementById('delete')
+    let buttonhtml = ''
+    let emailhtml = ''
+    if (product.editable === true) {
+      buttonhtml = `<button data-id='${product.id}' type="submit" class="delete btn btn-primary navbar-btn">Remove List</button>`
+      emailhtml = `<h4 data-user='${store.user.email}'> This is ${store.user.email} product</h4>`
+    }
+    //  document.getElementById('delete').style.display
+    // <button id="delete" type="submit" class="btn btn-primary navbar-btn">Remove List</button>}
+    //   $('#delete').show()
+    // }
+    // <button id="delete" type="submit" class="btn btn-primary navbar-btn">Remove List</button>
     const productHTML = (`
+
     <div class="table-container">
       <table class="table table-striped">
   <thead>
@@ -212,13 +229,16 @@ const onShowProduct = function (response) {
     <td>quantity</td>
     <td>id</td>
   </tr>
-
   </thead>
   <tbody>
   <tr>
     <th scope="col">${product.prod_name}</th>
     <th scope="col">${product.quantity}</th>
     <th scope="col">${product.id}</th>
+    <th scope="col">${buttonhtml}</th>
+    <th scope="col">${emailhtml}</th>
+
+
 
   </tr>
     </tbody>
@@ -235,6 +255,7 @@ const onShowProduct = function (response) {
     // </tr>
     // </table>
     // <br />
+
     $('#content').append(productHTML)
   })
 }
@@ -247,6 +268,7 @@ const onShowFailure = function (error) {
   console.error('onCreateFailure ran. Error is :', error)
 }
 const onDeleteProduct = function (response) {
+  $('#display-message').text('deleted successful')
   // console.log('Async: inside .then')
   // console.log(response)
   $('#delete-product').trigger('reset')
