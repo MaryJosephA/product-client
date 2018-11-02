@@ -211,8 +211,8 @@ const onShowProduct = function (response) {
     let buttonhtml = ''
     let emailhtml = ''
     if (product.editable === true) {
-      buttonhtml = `<button data-id='${product.id}' type="submit" class="delete btn btn-primary navbar-btn">Remove List</button>`
-      emailhtml = `<h4 data-user='${store.user.email}'> This is ${store.user.email} product</h4>`
+      buttonhtml = `<button data-id='${product.id}' type="submit" class="delete btn btn-primary navbar-btn">Delete</button>`
+      emailhtml = `<p data-user='${store.user.email}'>  ${store.user.email} </p>`
     }
     //  document.getElementById('delete').style.display
     // <button id="delete" type="submit" class="btn btn-primary navbar-btn">Remove List</button>}
@@ -225,9 +225,14 @@ const onShowProduct = function (response) {
       <table class="table table-striped">
   <thead>
   <tr>
+  <th scope="col">${buttonhtml}</th>
+  <th scope="col">${emailhtml}</th>
+  </tr>
+  <tr>
     <th scope="row">product</th>
     <td>quantity</td>
     <td>id</td>
+
   </tr>
   </thead>
   <tbody>
@@ -235,10 +240,6 @@ const onShowProduct = function (response) {
     <th scope="col">${product.prod_name}</th>
     <th scope="col">${product.quantity}</th>
     <th scope="col">${product.id}</th>
-    <th scope="col">${buttonhtml}</th>
-    <th scope="col">${emailhtml}</th>
-
-
 
   </tr>
     </tbody>
