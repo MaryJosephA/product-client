@@ -13,7 +13,7 @@ $(() => {
   $('#create-product').on('submit', authEvents.onCreateProduct)
   $('#getProductsButton').on('click', authEvents.onShowProduct)
   $('#update-product').on('submit', authEvents.onUpdateProduct)
-  $('#delete-product').on('submit', authEvents.onDeleteProduct)
+  $('#content').on('click', '.delete', authEvents.onDeleteProduct)
   $('#signout').on('click', authEvents.onSignOut)
   // your JS code goes here
 
