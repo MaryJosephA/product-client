@@ -131,13 +131,13 @@ const onCreateSuccess = function (response) {
 }
 
 //
-const onCreateFailure = function () {
+const onCreateFailure = function (error) {
   $('#display-message').text('Error on creating example')
   $('#display-message').css('color', 'red')
   $('#create-product').trigger('reset')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  // console.error('onCreateFailure ran. Error is :', error)
+  console.error('onCreateFailure ran. Error is :', error)
 }
 
 const onUpdateProduct = function (response) {
@@ -205,7 +205,6 @@ const onShowProduct = function (response) {
   $('#update-product').hide()
   // loop through API response data
   response.products.forEach(product => {
-    // console.log('this is :', product)
     // build HTML element with data
     //       const myClock = document.getElementById('delete')
     let buttonhtml = ''
