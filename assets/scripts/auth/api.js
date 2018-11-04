@@ -91,7 +91,7 @@ const updateProduct = function (prodData) {
 }
 const deleteProduct = function (prodDataId) {
   // prodData is empty! But I need the id
-  console.log('im trying to delete with prodData', prodDataId)
+  // console.log('im trying to delete with prodData', prodDataId)
   return $.ajax({
     url: config.apiUrl + '/products/' + prodDataId,
     method: 'DELETE',

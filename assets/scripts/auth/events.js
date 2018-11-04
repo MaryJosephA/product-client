@@ -104,12 +104,12 @@ const onDeleteProduct = function (event) {
   event.preventDefault()
 
   // event.target is a button
-  console.log('this event is :', event.target)
+  // console.log('this event is :', event.target)
 
   const prodDataId = event.target.getAttribute('data-id')
 
   // But prodData is an empty object? :(
-  console.log('prodData is', prodDataId)
+  // console.log('prodData is', prodDataId)
 
   // Make API call
   api.deleteProduct(prodDataId)
